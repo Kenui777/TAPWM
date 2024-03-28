@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Exercícios de JavaScript</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f7f7f7;
+      text-align: center;
+      padding: 50px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+  <script>
+    function calcularMedia() {
+      var nome = prompt("Digite o nome do aluno:");
+      var nota1 = parseFloat(prompt("Digite a primeira nota:"));
+      var nota2 = parseFloat(prompt("Digite a segunda nota:"));
+      var nota3 = parseFloat(prompt("Digite a terceira nota:"));
+      var media = (nota1 + nota2 + nota3) / 3;
+      alert("A média aritmética das notas do " + nome + " é: " + media.toFixed(2));
+    }
+
+    function realizarOperacoes() {
+      var num1 = parseFloat(prompt("Digite o primeiro número:"));
+      var num2 = parseFloat(prompt("Digite o segundo número:"));
+      var soma = num1 + num2;
+      var subtracao = num1 - num2;
+      var produto = num1 * num2;
+      var divisao = num1 / num2;
+      var resto = num1 % num2;
+
+      alert("Soma: " + soma.toFixed(2) +
+        "\nSubtração: " + subtracao.toFixed(2) +
+        "\nProduto: " + produto.toFixed(2) +
+        "\nDivisão: " + divisao.toFixed(2) +
+        "\nResto: " + resto.toFixed(2));
+    }
+  </script>
+</head>
+
+<body>
+  <button onclick="calcularMedia()">Calcular Média do Aluno</button>
+  <button onclick="realizarOperacoes()">Realizar Operações Matemáticas</button>
+</body>
+
+</html>

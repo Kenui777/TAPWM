@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo Pedra, Papel ou Tesoura</title>
+    <style>
+        body {
+            background-color: #f7f7f7; 
+            background-image: url('jogooo.jpg'); 
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            background-attachment: fixed; 
+            text-align: center; 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            height: 100%; 
+            overflow-y: scroll; 
+        }
+        h1 {
+            color: #07f3ff; 
+        }
+        button {
+            padding: 10px 20px; 
+            margin-top: 20px; 
+            font-size: 16px; 
+            cursor: pointer; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Jogo Pedra, Papel ou Tesoura</h1>
+    <button onclick="jogar()">Jogar</button>
+    <script>
+      function escolhaUsuario() {
+        let escolha = prompt("Escolha pedra, papel ou tesoura:");
+        return escolha ? escolha.toLowerCase() : "pedra"; // Retorna 'pedra' como padrão se nada for escolhido
+      }
+      
+      function escolhaComputador() {
+        let escolhas = ['pedra', 'papel', 'tesoura'];
+        let indice = Math.floor(Math.random() * 3);
+        return escolhas[indice];
+      }
+      
+      function determinarVencedor(escolhaUsuario, escolhaComputador) {
+        if (escolhaUsuario === escolhaComputador) {
+          return "Empate";
+        } else if ((escolhaUsuario === "pedra" && escolhaComputador === "tesoura") ||
+                   (escolhaUsuario === "tesoura" && escolhaComputador === "papel") ||
+                   (escolhaUsuario === "papel" && escolhaComputador === "pedra")) {
+          return "Usuário vence";
+        } else {
+          return "Computador vence";
+        }
+      }
+      
+      function jogar() {
+        let escolhaDoUsuario = escolhaUsuario();
+        let escolhaDoComputador = escolhaComputador();
+        let resultado = determinarVencedor(escolhaDoUsuario, escolhaDoComputador);
+        alert("Usuário escolheu: " + escolhaDoUsuario + "\nComputador escolheu: " + escolhaDoComputador + "\nResultado: " + resultado);
+      }
+    </script>
+</body>
+</html>

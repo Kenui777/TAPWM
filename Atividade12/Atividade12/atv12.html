@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios com Arrays e Strings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #e0ffff; 
+        }
+        .container {
+            margin-bottom: 30px;
+        }
+        h2, label, .result {
+            color: #00ced1; 
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 2px solid #00ced1; 
+            background-color: #e0ffff; 
+            color: #00ced1; 
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #00ced1; 
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #5f9ea0; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Exercício 1: Soma e Quadrado</h2>
+        <label for="numero1">Número 1:</label>
+        <input type="number" id="numero1">
+
+        <label for="numero2">Número 2:</label>
+        <input type="number" id="numero2">
+
+        <label for="numero3">Número 3:</label>
+        <input type="number" id="numero3">
+
+        <button onclick="calcular()">Calcular</button>
+
+        <div class="result" id="resultadoEx1"></div>
+    </div>
+
+    <div class="container">
+        <h2>Exercício 2: Verificação de Subconjunto 
+            <p> *obs escreva a palavra completa na palavra1 e verifique se é um subconjunto na palavra2</p>
+        </h2>
+        <label for="palavra1">Palavra 1:</label>
+        <input type="text" id="palavra1">
+
+        <label for="palavra2">Palavra 2:</label>
+        <input type="text" id="palavra2">
+
+        <button onclick="verificarSubconjunto()">Verificar</button>
+
+        <div class="result" id="resultadoEx2"></div>
+    </div>
+
+    <script>
+        // Função para o Exercício 1
+        function calcular() {
+            const num1 = Number(document.getElementById("numero1").value);
+            const num2 = Number(document.getElementById("numero2").value);
+            const num3 = Number(document.getElementById("numero3").value);
+
+            const array = [num1, num2, num3];
+            const soma = array.reduce((acc, num) => acc + num, 0);
+            
+            function quadrado(num) {
+                return num * num;
+            }
+
+            const quadradoPrimeiro = quadrado.apply(null, [array[0]]);
+            const quadradoSegundo = quadrado.apply(null, [array[1]]);
+
+            const resultado = `A soma dos três números é: ${soma}, o quadrado do primeiro é: ${quadradoPrimeiro} e o quadrado do segundo é: ${quadradoSegundo}`;
+            document.getElementById("resultadoEx1").innerText = resultado;
+        }
+
+        // Função para o Exercício 2
+        function verificarSubconjunto() {
+            const palavra1 = document.getElementById("palavra1").value;
+            const palavra2 = document.getElementById("palavra2").value;
+
+            if (!palavra1 || !palavra2) {
+                document.getElementById("resultadoEx2").innerText = "erro";
+                return;
+            }
+
+            const resultado = palavra1.includes(palavra2) ? "é um subconjunto" : "não é um subconjunto";
+            document.getElementById("resultadoEx2").innerText = resultado;
+        }
+    </script>
+
+</body>
+</html>

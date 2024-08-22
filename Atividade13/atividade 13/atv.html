@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício - Objeto Aluno</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #1e90ff;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border-left: 4px solid #1e90ff;
+            background-color: #e6f7ff;
+            border-radius: 4px;
+        }
+
+        .result h2 {
+            margin-top: 0;
+            color: #1e90ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exercício - Objeto Aluno</h1>
+        <p>Criar o Objeto: <strong>Aluno1</strong> (propriedades: <strong>RA</strong>, <strong>Nome</strong>).</p>
+        <p>Atribua valores para as propriedades utilizando 3 formas diferentes:</p>
+
+        <div class="result">
+            <h2>Forma 1: Objeto Literal</h2>
+            <p id="forma1"></p>
+        </div>
+
+        <div class="result">
+            <h2>Forma 2: Função Construtora</h2>
+            <p id="forma2"></p>
+        </div>
+
+        <div class="result">
+            <h2>Forma 3: Classe</h2>
+            <p id="forma3"></p>
+        </div>
+    </div>
+
+    <script>
+        // Forma 1: Objeto Literal
+        let aluno1 = {
+            RA: '12345',
+            Nome: 'João Silva'
+        };
+        document.getElementById('forma1').textContent = `RA: ${aluno1.RA}, Nome: ${aluno1.Nome}`;
+
+        // Forma 2: Função Construtora
+        function Aluno(RA, Nome) {
+            this.RA = RA;
+            this.Nome = Nome;
+        }
+
+        let aluno2 = new Aluno('67890', 'Maria Oliveira');
+        document.getElementById('forma2').textContent = `RA: ${aluno2.RA}, Nome: ${aluno2.Nome}`;
+
+        // Forma 3: Classe
+        class AlunoClasse {
+            constructor(RA, Nome) {
+                this.RA = RA;
+                this.Nome = Nome;
+            }
+        }
+
+        let aluno3 = new AlunoClasse('11223', 'Carlos Pereira');
+        document.getElementById('forma3').textContent = `RA: ${aluno3.RA}, Nome: ${aluno3.Nome}`;
+    </script>
+</body>
+</html>
